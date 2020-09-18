@@ -1,0 +1,211 @@
+@font-face {
+  font-family: fontawesome;
+  src: url("http://cdn.basiscore.net/_fonts/fontawesome-webfont.eot");
+  src: local("?"), url("http://cdn.basiscore.net/_fonts/fontawesome-webfont.woff") format("woff"), url("http://cdn.basiscore.net/_fonts/fontawesome-webfont.ttf") format("truetype"),
+      url("http://cdn.basiscore.net/_fonts/fontawesome-webfont.otf") format("otf");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: BKoodakBold;
+  src: url("http://cdn.basiscore.net/_fonts/BKoodakBold.eot");
+  src: local("?"), url("http://cdn.basiscore.net/_fonts/BKoodakBold.woff") format("woff"), url("http://cdn.basiscore.net/_fonts/BKoodakBold.ttf") format("truetype"), url("http://cdn.basiscore.net/_fonts/BKoodakBold.otf") format("otf");
+  font-weight: 400;
+  font-style: normal;
+}
+
+.animation {
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+a {
+  text-decoration: none;
+  color: #555;
+}
+ul {
+  list-style: none;
+  padding: 0;
+}
+.clr {
+  clear: both;
+}
+body {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-family: BKoodakBold;
+  color: #555;
+  background: #fcfcfc;
+  font-size: 16px;
+  position: relative;
+}
+.fa {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.fa-refresh:before {
+  content: "\f021";
+}
+/*footer*/
+.footer_resize {
+  width: 100%;
+  height: 60px;
+  background: #f0f0f0;
+  position: fixed;
+  z-index: 9999;
+  bottom: 0;
+}
+.footer {
+  width: 95%;
+  margin: 0 auto;
+}
+
+.powerby {
+  color: #212121;
+  position: relative;
+  top: 20px;
+  left: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+/*footer*/
+
+/*login page*/
+.login_body .main_menu_resize,
+.register_body .main_menu_resize {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+}
+.login_resize_page {
+  width: 100%;
+  height: 100vh;
+  background: url("../images/536.jpg") no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.login_box {
+  width: 360px;
+  height: 500px;
+  background: #fff;
+  border-radius: 5px;
+  direction: rtl;
+  text-align: right;
+  padding: 20px;
+}
+.login_box_title {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ebebeb;
+  margin-bottom: 20px;
+}
+.form_field input {
+  width: 94%;
+  background: #f3f2ee;
+  border-radius: 5px;
+  border: none;
+  height: 40px;
+  font-family: BKoodakBold;
+  padding: 0 3%;
+  color: #747474;
+  margin-bottom: 20px !important;
+}
+.form_field .fa-refresh {
+  font-size: 25px;
+  cursor: pointer;
+  margin-right: 15px;
+  position: relative;
+  top: -5px;
+}
+.submit_form {
+  width: 40%;
+  height: 40px;
+  border-radius: 20px;
+  background: #484541;
+  border: none;
+  color: #fff;
+  font-family: BKoodakBold;
+  cursor: pointer;
+  margin-bottom: 10px;
+  margin: 0 auto;
+  text-align: center;
+  line-height: 40px;
+}
+.login_link {
+  color: #429cb6;
+  width: 100%;
+  text-align: center;
+  font-size: 12px;
+  display: inline-block;
+}
+.register_login a {
+  color: #fff;
+  display: inline;
+  padding-left: 20px;
+}
+.register_login {
+  position: relative;
+  top: -60px;
+  direction: rtl;
+  text-align: right;
+  color: #fff;
+}
+.register_body .login_box {
+  height: 550px;
+}
+.form_msg {
+  text-align: center;
+
+  font-size: 14px;
+
+  margin: 10px 0;
+}
+.form_msg_success {
+  color: #00a213;
+}
+.form_msg_unsuccess {
+  color: #e31856;
+}
+.infoUser span {
+  color: #fff;
+}
+.profile_btns {
+  float: right;
+}
+.infoUser {
+  margin-top: 10px;
+}
+.profile_btn {
+  float: right;
+  margin-left: 10px;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #dbdfe2;
+  text-align: center;
+  line-height: 25px;
+  border-radius: 2px;
+}
+.exit_btn {
+  float: right;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #dbdfe2;
+  line-height: 25px;
+  border-radius: 2px;
+}
+/*login page*/
