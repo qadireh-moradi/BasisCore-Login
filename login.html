@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Login</title>
+        <link rel="shortcut icon" href="images/icon.png" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="css/main.css" type="text/css" />
+    </head>
+    <body class="login_body">
+        <div class="login_resize_page">
+            <div class="login_box">
+                <div class="login_box_title">ورود اعضا</div>
+                <form id="form" method="post" action="https://trust-login.com/api/login" autocomplete="off">
+                    <div class="form_field">
+                        <label>نام کاربری</label>
+                        <input type="text" id="username" placeholder="ایمیل را وارد کنید" name="username" />
+                    </div>
+                    <div class="form_field">
+                        <label> کلمه عبور</label>
+                        <input type="password" id="password" placeholder="کلمه عبور را وارد کنید" name="password" />
+                    </div>
+                    <div class="form_field">
+                        <label>کد امنیتی </label>
+                        <input type="text" placeholder="کد امنیتی" name="captcha" id="captcha" />
+                        <span class="captcha_wrapper"><img src="ca151100000195046." width="70" height="35" /> <input type="hidden" name="captchaid" id="captchaid" value="ca151100000195046." /></span>
+                        <span onClick="load_captcha(this)"><i class="fa fa-refresh"></i></span>
+                    </div>
+                    <div class="form_field1">
+                        <div class="submit_form" onClick="submit(this,event)">ورود</div>
+                    </div>
+                    <div class="form_msg"></div>
+                </form>
+            </div>
+        </div>
+        <div class="clr"></div>
+        <footer class="footer_resize">
+            <div class="powerby"><span>POWERD BY :</span> <img src="images/basiscore_85X20.webp" /></div>
+        </footer>
+
+        <script type="text/javascript">
+            load_captcha();
+            function load_captcha(a) {
+                var xhr = new XMLHttpRequest();
+                xhr.addEventListener("readystatechange", () => {
+                    if (xhr.readyState === 4) {
+                        if (xhr.status === 200) {
+                            // request succesful
+                            var json = JSON.parse(xhr.responseText);
+                            var Captcha_img = document.createElement("img");
+                            Captcha_img.src = "https://basiscore.net/" + json[0].captcha;
+                            Captcha_img.width = 70;
+                            Captcha_img.height = 35;
+                            var Captcha_input = document.createElement("input");
+                            Captcha_input.type = "hidden";
+                            Captcha_input.value = json[0].captcha;
+                            Captcha_input.id = "captchaid";
+                            captcha_parent = document.getElementsByClassName("captcha_wrapper");
+                            captcha_parent[0].innerHTML = "";
+                            captcha_parent[0].appendChild(Captcha_img);
+                            captcha_parent[0].appendChild(Captcha_input);
+                            console.log();
+                        }
+                    }
+                });
+                xhr.open("GET", "https://trust-login.com/api/captcha?grade=easy", true);
+                xhr.send();
+            }
+            function submit(a, e) {
+                e.preventDefault();
+                var xhr = new XMLHttpRequest(),
+                    username = document.getElementById("username").value,
+                    password = document.getElementById("password").value,
+                    captcha = document.getElementById("captcha").value,
+                    captchaid = document.getElementById("captchaid").value;
+                xhr.addEventListener("readystatechange", () => {
+                    if (xhr.readyState === 4) {
+                        if (xhr.status === 200) {
+                            // request succesful
+                            var json = JSON.parse(xhr.responseText);
+                            var login_msg = document.getElementsByClassName("form_msg")[0];
+                            if (json[0].error == "true") {
+                                login_msg.innerHTML = "شما با موفقیت وارد شدید";
+                                login_msg.style.color = "green";
+                            } else {
+                                login_msg.innerHTML = json[0].error;
+                                login_msg.style.color = "red";
+                                load_captcha();
+                            }
+                        }
+                    }
+                });
+                xhr.open("POST", "https://trust-login.com/api/login", true);
+                xhr.send("username=" + username + "&password=" + password + "&captcha=" + captcha + "&captchaid=" + captchaid + "&dmnid=1&ownerid=2&lid=1");
+            }
+            
+        </script>
+    </body>
+</html>
